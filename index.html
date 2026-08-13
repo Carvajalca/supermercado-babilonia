@@ -1,326 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermercado Babilonia</title>
 
-    <meta charset="UTF-8">
-
-    <!-- Hace que la aplicación sea responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Supermercado Babilonia</title>
-
-    <link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         ENCABEZADO
-         ===================================================== -->
+  <!-- HEADER -->
+  <header class="header">
 
-    <header class="header">
+    <div class="header-container">
 
-        <div class="header-contenido">
+      <button class="icon-btn" id="menuBtn">
+        ☰
+      </button>
 
-            <div>
-                <h1>🏪 Supermercado Babilonia</h1>
-                <p>Domicilios rápidos y fáciles</p>
-            </div>
+      <img
+        src="assets/logo.png"
+        alt="Supermercado Babilonia"
+        class="logo">
 
-            <!-- Botón que abre el carrito -->
-            <button id="btn-carrito-header" class="boton-carrito">
-
-                🛒
-
-                <span id="contador-carrito">0</span>
-
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         CONTENIDO PRINCIPAL
-         ===================================================== -->
-
-    <main class="contenedor">
-
-        <!-- Bienvenida -->
-
-        <section class="bienvenida">
-
-            <h2>¡Hola! 👋</h2>
-
-            <p>
-                ¿Qué deseas pedir hoy?
-            </p>
-
-        </section>
-
-
-        <!-- =================================================
-             BUSCADOR
-             ================================================= -->
-
-        <section class="buscador">
-
-            <input
-                type="text"
-                id="buscador-productos"
-                placeholder="🔎 Buscar arroz, huevos, arepas..."
-            >
-
-        </section>
-
-
-        <!-- =================================================
-             CATÁLOGO
-             ================================================= -->
-
-        <section>
-
-            <div id="productos" class="productos">
-
-                <!-- JavaScript cargará aquí los productos -->
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         VENTANA DEL CARRITO
-         ===================================================== -->
-
-    <div id="modal-carrito" class="modal oculto">
-
-        <div class="modal-contenido">
-
-            <div class="modal-header">
-
-                <h2>🛒 Tu pedido</h2>
-
-                <button
-                    id="cerrar-carrito"
-                    class="cerrar"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <!-- Productos del carrito -->
-
-            <div id="contenido-carrito">
-
-                <!-- JavaScript cargará aquí el carrito -->
-
-            </div>
-
-
-            <!-- Total -->
-
-            <div class="total-carrito">
-
-                <span>Total</span>
-
-                <strong id="total-carrito">
-                    $0
-                </strong>
-
-            </div>
-
-
-            <button
-                id="btn-continuar"
-                class="boton-principal"
-            >
-                Continuar con el pedido
-            </button>
-
-        </div>
+      <button class="icon-btn cart-header" id="openCart">
+        🛒
+        <span id="cartCounter">0</span>
+      </button>
 
     </div>
 
+  </header>
 
-    <!-- =====================================================
-         FORMULARIO DEL DOMICILIO
-         ===================================================== -->
+  <!-- CONTENIDO -->
+  <main class="container">
 
-    <div id="modal-domicilio" class="modal oculto">
+    <!-- CARRUSEL -->
+    <section class="carousel">
 
-        <div class="modal-contenido">
+      <div class="carousel-track" id="carouselTrack">
 
-            <div class="modal-header">
+        <div class="slide">
 
-                <h2>📍 Datos del domicilio</h2>
+          <img src="assets/banners/banner1.jpg" alt="Banner 1">
 
-                <button
-                    id="cerrar-domicilio"
-                    class="cerrar"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <form id="formulario-domicilio">
-
-                <label>
-                    Nombre de quien recibe
-                </label>
-
-                <input
-                    type="text"
-                    id="nombre"
-                    required
-                >
-
-
-                <label>
-                    Teléfono
-                </label>
-
-                <input
-                    type="tel"
-                    id="telefono"
-                    required
-                >
-
-
-                <label>
-                    Barrio
-                </label>
-
-                <input
-                    type="text"
-                    id="barrio"
-                    required
-                >
-
-
-                <label>
-                    Dirección
-                </label>
-
-                <input
-                    type="text"
-                    id="direccion"
-                    required
-                >
-
-
-                <label>
-                    Medio de pago
-                </label>
-
-                <select
-                    id="medio-pago"
-                    required
-                >
-
-                    <option value="">
-                        Selecciona una opción
-                    </option>
-
-                    <option value="Efectivo">
-                        Efectivo
-                    </option>
-
-                    <option value="Transferencia">
-                        Transferencia
-                    </option>
-
-                    <option value="Otro">
-                        Otro
-                    </option>
-
-                </select>
-
-
-                <button
-                    type="submit"
-                    class="boton-principal"
-                >
-                    Confirmar pedido
-                </button>
-
-            </form>
+          <div class="slide-overlay">
+            <h2>TODO LO QUE NECESITAS</h2>
+            <p>AMA LA VIDA Y LO QUE HACES</p>
+            <button>Haz tu pedido</button>
+          </div>
 
         </div>
 
-    </div>
-
-
-    <!-- =====================================================
-         CONFIRMACIÓN DEL PEDIDO
-         ===================================================== -->
-
-    <div id="modal-confirmacion" class="modal oculto">
-
-        <div class="modal-contenido confirmacion">
-
-            <div class="icono-confirmacion">
-                ✅
-            </div>
-
-            <h2>¡Pedido recibido!</h2>
-
-            <p>
-                Tu pedido ha sido registrado correctamente.
-            </p>
-
-            <div class="numero-pedido">
-
-                Pedido
-
-                <strong id="numero-pedido">
-                    #00001
-                </strong>
-
-            </div>
-
-            <p>
-
-                Total:
-
-                <strong id="total-confirmacion">
-                    $0
-                </strong>
-
-            </p>
-
-            <p class="mensaje-domicilio">
-
-                🛵 Tu domicilio estará llegando
-                aproximadamente en 30 minutos.
-
-            </p>
-
-            <button
-                id="cerrar-confirmacion"
-                class="boton-principal"
-            >
-                Finalizar
-            </button>
-
+        <div class="slide">
+          <img src="assets/banners/banner2.jpg" alt="Banner 2">
         </div>
 
+        <div class="slide">
+          <img src="assets/banners/banner3.jpg" alt="Banner 3">
+        </div>
+
+      </div>
+
+      <div class="dots" id="carouselDots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Buscar productos...">
+
+      <span class="search-icon">🔍</span>
+
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section>
+
+      <div class="section-title">
+        <h3>Categorías</h3>
+        <a href="#">Ver todas</a>
+      </div>
+
+      <div class="categories">
+
+        <div class="category">
+          <div>🌾</div>
+          <span>Granos</span>
+        </div>
+
+        <div class="category">
+          <div>🥛</div>
+          <span>Lácteos</span>
+        </div>
+
+        <div class="category">
+          <div>🥚</div>
+          <span>Huevos</span>
+        </div>
+
+        <div class="category">
+          <div>🫓</div>
+          <span>Panadería</span>
+        </div>
+
+        <div class="category">
+          <div>🥤</div>
+          <span>Bebidas</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section>
+
+      <div class="section-title">
+        <h3>Productos destacados</h3>
+      </div>
+
+      <div id="productList" class="product-list"></div>
+
+    </section>
+
+  </main>
+
+  <!-- CARRITO FLOTANTE -->
+  <button class="floating-cart" id="floatingCart">
+
+    <div>
+      🛒 Ver pedido
+      <small id="itemsCart">0 productos</small>
     </div>
 
+    <strong id="totalCart">$0</strong>
 
-    <!-- JavaScript -->
+  </button>
 
-    <script src="app.js"></script>
+  <!-- MODAL DEL CARRITO -->
+  <div class="modal hidden" id="cartModal">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button class="back-btn">←</button>
+
+        <h2>Tu pedido</h2>
+
+        <button class="close-btn">✕</button>
+
+      </div>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotalModal">$0</strong>
+      </div>
+
+      <button class="primary-btn">
+        Continuar con el pedido
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
 
 </body>
-
 </html>
