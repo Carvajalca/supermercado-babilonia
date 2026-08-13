@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Hace que la aplicación sea responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supermercado Babilonia</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ENCABEZADO
+         ===================================================== -->
+
+    <header class="header">
+
+        <div class="header-contenido">
+
+            <div>
+                <h1>🏪 Supermercado Babilonia</h1>
+                <p>Domicilios rápidos y fáciles</p>
+            </div>
+
+            <!-- Botón que abre el carrito -->
+            <button id="btn-carrito-header" class="boton-carrito">
+
+                🛒
+
+                <span id="contador-carrito">0</span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="contenedor">
+
+        <!-- Bienvenida -->
+
+        <section class="bienvenida">
+
+            <h2>¡Hola! 👋</h2>
+
+            <p>
+                ¿Qué deseas pedir hoy?
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             BUSCADOR
+             ================================================= -->
+
+        <section class="buscador">
+
+            <input
+                type="text"
+                id="buscador-productos"
+                placeholder="🔎 Buscar arroz, huevos, arepas..."
+            >
+
+        </section>
+
+
+        <!-- =================================================
+             CATÁLOGO
+             ================================================= -->
+
+        <section>
+
+            <div id="productos" class="productos">
+
+                <!-- JavaScript cargará aquí los productos -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         VENTANA DEL CARRITO
+         ===================================================== -->
+
+    <div id="modal-carrito" class="modal oculto">
+
+        <div class="modal-contenido">
+
+            <div class="modal-header">
+
+                <h2>🛒 Tu pedido</h2>
+
+                <button
+                    id="cerrar-carrito"
+                    class="cerrar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- Productos del carrito -->
+
+            <div id="contenido-carrito">
+
+                <!-- JavaScript cargará aquí el carrito -->
+
+            </div>
+
+
+            <!-- Total -->
+
+            <div class="total-carrito">
+
+                <span>Total</span>
+
+                <strong id="total-carrito">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <button
+                id="btn-continuar"
+                class="boton-principal"
+            >
+                Continuar con el pedido
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FORMULARIO DEL DOMICILIO
+         ===================================================== -->
+
+    <div id="modal-domicilio" class="modal oculto">
+
+        <div class="modal-contenido">
+
+            <div class="modal-header">
+
+                <h2>📍 Datos del domicilio</h2>
+
+                <button
+                    id="cerrar-domicilio"
+                    class="cerrar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="formulario-domicilio">
+
+                <label>
+                    Nombre de quien recibe
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    required
+                >
+
+
+                <label>
+                    Teléfono
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    required
+                >
+
+
+                <label>
+                    Barrio
+                </label>
+
+                <input
+                    type="text"
+                    id="barrio"
+                    required
+                >
+
+
+                <label>
+                    Dirección
+                </label>
+
+                <input
+                    type="text"
+                    id="direccion"
+                    required
+                >
+
+
+                <label>
+                    Medio de pago
+                </label>
+
+                <select
+                    id="medio-pago"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="Efectivo">
+                        Efectivo
+                    </option>
+
+                    <option value="Transferencia">
+                        Transferencia
+                    </option>
+
+                    <option value="Otro">
+                        Otro
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="submit"
+                    class="boton-principal"
+                >
+                    Confirmar pedido
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONFIRMACIÓN DEL PEDIDO
+         ===================================================== -->
+
+    <div id="modal-confirmacion" class="modal oculto">
+
+        <div class="modal-contenido confirmacion">
+
+            <div class="icono-confirmacion">
+                ✅
+            </div>
+
+            <h2>¡Pedido recibido!</h2>
+
+            <p>
+                Tu pedido ha sido registrado correctamente.
+            </p>
+
+            <div class="numero-pedido">
+
+                Pedido
+
+                <strong id="numero-pedido">
+                    #00001
+                </strong>
+
+            </div>
+
+            <p>
+
+                Total:
+
+                <strong id="total-confirmacion">
+                    $0
+                </strong>
+
+            </p>
+
+            <p class="mensaje-domicilio">
+
+                🛵 Tu domicilio estará llegando
+                aproximadamente en 30 minutos.
+
+            </p>
+
+            <button
+                id="cerrar-confirmacion"
+                class="boton-principal"
+            >
+                Finalizar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
